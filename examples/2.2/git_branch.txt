@@ -27,6 +27,6 @@ Steps:
 
 7*. git push --set-upstream origin class2.2 # I needed to include this step because my remote directory does not already contain the class2.2 branch, this command pushes this new empty branch to my remote repository
 
-7. git push origin # if you're branch already exists in your remote directory you can just git push origin like normal.
+7*. git push origin # if you're branch already exists in your remote directory you can just git push origin like normal.
 
 8. git status # check to make sure you added your code, and you check github.com to see the changes
