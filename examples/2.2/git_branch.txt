@@ -1,0 +1,21 @@
+Git Branch Example
+
+https://www.atlassian.com/git/tutorials/using-branches
+
+A branch is an independant line of development.
+
+If we want to add a new feature, or to squash some bugs we can create a new branch to do so in a safe place away from our main project.
+
+Steps:
+0. Change into a local git directory
+
+1. git branch # this shows a list of all branches
+
+2. git branch class2.2 # this creates a new branch in my local directory called class2.2
+
+2a. git branch # this shows a list of all branches, my OS marks the current branch with a star!
+
+3. git checkout class2.2 # this switches from the master branch to the class2.2 branch
+
+3a. git branch # this shows a list of all branches, my current branch is class2.2
+
