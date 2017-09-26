@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>This was inserted using Jinja2's Template Extension</h1>
+<ol>
+    {% for element in the_list %}
+    <li>{{element}}</li>
+    {% endfor %}
+</ol>
+{% endblock %}

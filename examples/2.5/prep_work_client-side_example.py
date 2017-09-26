@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, escape
 import cgi
 import html
 
@@ -18,6 +18,18 @@ form = """
 </html>
 """
 form2 = """
+<!doctype html>
+<html>
+<body>
+    <form action="/hello-test" method="post">
+        <label for="f-name">First Name:</label>
+        <input type="text" id="f-name" name="fname" />
+        <input type="submit" />
+    </form>
+</body>
+</html>
+"""
+form3 = """
 <!doctype html>
 <html>
 <body>
@@ -52,5 +64,15 @@ def hello_test():
     # after looking at the documentation for CGI library in Python, cgi.escape() is deprecated, and the supported way is using the html library
     return "Hi " + html.escape(first_name)
 
+@app.route("/test2", methods=['GET'])
+def test2():
+    return "<h1>Using the flask escape library</h1>" + form3
 
+@app.route("/hello-test2", methods=['POST'])
+def test3():
+    first_name = request.form['fname']
+    # we are using escape() built into flask for sanitizing HTML tags
+    # after digging even deeper into the documentation I've found a third tool that will solve the problem, and it doesn't require anything outside of Flask!
+    # It should be noted, you only need to use one of the HTML escape methods: cgi.escape(), html.escape(), or flask.escape()
+    return "Hi " + escape(first_name)
 app.run()
